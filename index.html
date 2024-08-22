@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU Scheduling Simulator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CPU Scheduling Simulator</h1>
+        <form id="schedulerForm">
+            <label for="algorithm">Select Scheduling Algorithm:</label>
+            <select id="algorithm" name="algorithm">
+                <option value="fcfs">First-Come-First-Serve (FCFS)</option>
+                <option value="sjf">Shortest Job First (SJF)</option>
+                <option value="priority">Priority Scheduling</option>
+                <option value="rr">Round Robin (RR)</option>
+            </select>
+            <button type="button" onclick="simulate()">Simulate</button>
+        </form>
+        <div id="results"></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
