@@ -1,0 +1,3 @@
+[submodule "cpu-scheduling-simulator"]
+    path = cpu-scheduling-simulator
+    url = https://github.com/arienmaxwell/cpu-scheduling-simulator.git
