@@ -11,22 +11,45 @@ function simulate() {
     ];
 
     let results;
+    let description = '';
+
     switch (algorithm) {
         case "fcfs":
             results = fcfs(processes);
+            description = `
+                <h2>First-Come-First-Serve (FCFS)</h2>
+                <p>FCFS is the simplest CPU scheduling algorithm. Processes are attended to in the order they arrive in the ready queue. There is no preemption; once a process starts execution, it runs to completion before the next process starts.</p>
+            `;
             break;
         case "sjf":
             results = sjf(processes);
+            description = `
+                <h2>Shortest Job First (SJF)</h2>
+                <p>SJF selects the process with the smallest burst time for execution next. This algorithm can be preemptive or non-preemptive. In non-preemptive SJF, once a process starts execution, it runs to completion. In preemptive SJF, the process can be preempted if a new process with a shorter burst time arrives.</p>
+            `;
             break;
         case "priority":
             results = priorityScheduling(processes);
+            description = `
+                <h2>Priority Scheduling</h2>
+                <p>Priority Scheduling selects the process with the highest priority for execution next. If two processes have the same priority, FCFS is used to break ties. This algorithm can be preemptive or non-preemptive. In non-preemptive priority scheduling, once a process starts, it runs to completion. In preemptive priority scheduling, a new process with a higher priority can preempt the currently running process.</p>
+            `;
             break;
         case "rr":
             results = roundRobin(processes, 2);
+            description = `
+                <h2>Round Robin (RR)</h2>
+                <p>Round Robin is a preemptive scheduling algorithm where each process is assigned a fixed time slice or quantum. Processes are executed in a circular order, and if a process does not finish within its time slice, it is placed back in the ready queue and the next process is selected. This continues until all processes are complete.</p>
+            `;
             break;
     }
 
+    displayAlgorithmDescription(description);
     displayResults(results);
+}
+
+function displayAlgorithmDescription(description) {
+    document.getElementById("algorithmDescription").innerHTML = description;
 }
 
 function displayResults(results) {
